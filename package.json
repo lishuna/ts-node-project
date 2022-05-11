@@ -1,0 +1,34 @@
+{
+  "name": "qm-generate-fe-code-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "npm run build && nodemon --harmony ./dist/server.js",
+    "build": "tsc",
+    "watch-node": "nodemon -w ./dist/server.js",
+    "watch-ts": "tsc -w",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "debug-schema": "ts-node -p ./src/models/generate/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@formily/json-schema": "^2.1.0",
+    "body-parser": "^1.20.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16",
+    "concurrently": "^7.1.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.2",
+    "@types/errorhandler": "^1.5.0",
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.31",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  }
+}
